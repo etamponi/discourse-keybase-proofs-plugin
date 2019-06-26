@@ -9,12 +9,16 @@ export default Ember.Controller.extend(ModalFunctionality, {
   kbUsername: "",
   sigHash: "",
 
+  get current() {
+    return Discourse.User.current() || {};
+  },
+
   get currentUsername() {
-    return Discourse.User.current().username;
+    return this.current.username;
   },
 
   get renderCurrentUserAvatar() {
-    return renderAvatar(Discourse.User.current(), {
+    return renderAvatar(this.current, {
       imageSize: 60,
     });
   },

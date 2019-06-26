@@ -32,8 +32,7 @@ after_initialize do
   KeybaseProofs::Engine.routes.draw do
     get "/config" => "config#index"
 
-    get "/new-proof/:username/:kb_username/:sig_hash" => "proof#new",
-      :constraints => { :username => /[^\/]+/, :kb_username => /[^\/]+/ }
+    get "/new-proof" => "proof#new"
     
     post "/proofs" => "proof#create"
     get "/proofs" => "proof#check"
