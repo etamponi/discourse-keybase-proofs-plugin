@@ -1,0 +1,4 @@
+plugins:
+  keybase_proofs_enabled:
+    default: true
+    client: true

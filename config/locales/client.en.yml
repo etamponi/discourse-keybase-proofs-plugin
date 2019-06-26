@@ -1,0 +1,8 @@
+en:
+  js:
+    keybase_proofs:
+      new_proof_title: "Keybase Connection"
+      authorize: "Yes, authorize"
+      deny: "No"
+      wrong_user: "Wrong user"
+      revoke: "Revoke"

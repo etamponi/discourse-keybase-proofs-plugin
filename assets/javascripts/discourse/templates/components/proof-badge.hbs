@@ -1,0 +1,10 @@
+<div class="keybase-badge">
+  <span>
+    <a href="{{keybaseUrl}}" class="keybase-username">@{{signature.kb_username}}</a>
+    on Keybase
+  </span>
+  <img alt="Keybase proof status" src="{{keybaseStatusUrl}}" />
+  {{#if visitingOwnProfile}}
+    {{d-button label="keybase_proofs.revoke" action=(action "revoke") class="revoke"}}
+  {{/if}}
+</div>

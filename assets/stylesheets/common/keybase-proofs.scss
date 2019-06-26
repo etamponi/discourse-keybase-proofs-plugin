@@ -1,0 +1,11 @@
+.new-proof-modal {
+  .btn {
+    display: block;
+    margin-bottom: 5px;
+    width: 100%;
+
+    &.authorize {
+      background-color: lightgreen;
+    }
+  }
+}

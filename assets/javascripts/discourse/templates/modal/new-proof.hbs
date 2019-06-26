@@ -1,0 +1,17 @@
+{{#d-modal-body title="keybase_proofs.new_proof_title" class="new-proof-modal"}}
+  <div class="question">Authorize this cryptographic connection?</div>
+  <div class="connection">
+    <div class="discourse-user">
+      {{{renderCurrentUserAvatar}}}
+      <span>I am <span class="username">{{currentUsername}}</span> on {{discourseDomain}}</span>
+    </div>
+    <div class="keybase-user">
+      <img width="60" height="60" class="avatar" src="{{kbPicUrl}}" />
+      <span>I am <span class="username">{{kbUsername}}</span> on KeyBase</span>
+    </div>
+  </div>
+  <div class="buttons">
+    {{d-button label="keybase_proofs.authorize" action=(action "authorize") class="authorize"}}
+    {{d-button label="keybase_proofs.deny" action=(action "cancel")}}
+  </div>
+{{/d-modal-body}}

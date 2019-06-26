@@ -1,0 +1,6 @@
+en:
+  site_settings:
+    keybase_proofs_enabled: "Enable KeybaseProofs plugin"
+  keybase_proofs:
+    invalid_proof: "The provided proof is invalid"
+    wrong_user: "Wrong user"
