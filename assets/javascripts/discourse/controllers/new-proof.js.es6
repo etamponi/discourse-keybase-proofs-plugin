@@ -8,6 +8,7 @@ export default Ember.Controller.extend(ModalFunctionality, {
   kbPicUrl: "",
   kbUsername: "",
   sigHash: "",
+  kbUA: "",
 
   get current() {
     return Discourse.User.current() || {};
@@ -37,8 +38,8 @@ export default Ember.Controller.extend(ModalFunctionality, {
           sig_hash: this.sigHash,
         },
       })
-      .then((json) => {
-        console.log("done!", json);
+      .then(() => {
+        window.location.href = `https://keybase.io/_/proof_creation_success?domain=${location.hostname}&kb_username=${this.kbUsername}&username=${this.currentUsername}&sig_hash=${this.sigHash}&kb_ua=${this.kbUA}`;
       })
       .catch((e) => {
         this.send("closeModal");
@@ -54,6 +55,7 @@ export default Ember.Controller.extend(ModalFunctionality, {
     openModal(query) {
       this.set("kbUsername", query.kb_username);
       this.set("sigHash", query.sig_hash);
+      this.set("kbUA", query.kb_ua);
 
       ajax("/keybase-proofs/pic-url", {
         type: "GET",
