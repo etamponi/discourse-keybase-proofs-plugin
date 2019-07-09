@@ -14,7 +14,7 @@ module KeybaseProofs
 
       render json: {
         version: 1,
-        domain: base_url,
+        domain: base_url.sub(/^https?\:\/\//,''),
         display_name: SiteSetting.title,
 
         username: {
