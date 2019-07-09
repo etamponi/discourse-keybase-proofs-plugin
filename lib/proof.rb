@@ -6,6 +6,7 @@ module KeybaseProofs
       @username = username
       @kb_username = kb_username
       @sig_hash = sig_hash
+      @domain = Discourse.base_url.sub(/^https?\:\/\//,'')
       @api_conn = Excon.new("https://keybase.io")
     end
 
@@ -13,7 +14,7 @@ module KeybaseProofs
       res = JSON.parse(@api_conn.get(
         :path => '/_/api/1.0/sig/proof_valid.json',
         :query => {
-          :domain => Discourse.base_url,
+          :domain => @domain,
           :username => @username,
           :kb_username => @kb_username,
           :sig_hash => @sig_hash,
@@ -28,7 +29,7 @@ module KeybaseProofs
       res = JSON.parse(@api_conn.get(
         :path => '/_/api/1.0/sig/proof_live.json',
         :query => {
-          :domain => Discourse.base_url,
+          :domain => @domain,
           :username => @username,
           :kb_username => @kb_username,
           :sig_hash => @sig_hash,

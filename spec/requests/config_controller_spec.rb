@@ -12,7 +12,7 @@ describe KeybaseProofs::ConfigController do
     it "returns a Keybase configuration" do
       get "/keybase-proofs/config"
 
-      assert(response.status).to eq(200)
+      expect(response.status).to eq(200)
     end
 
   end

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe KeybaseProofs::ProofController do  
+describe KeybaseProofs::ProofController do
   before do
     Jobs.run_immediately!
   end
@@ -11,7 +11,7 @@ describe KeybaseProofs::ProofController do
     before do
       stub_request(:get, 'https://keybase.io/_/api/1.0/sig/proof_valid.json')
         .with(query: {
-          :domain => Discourse.base_url,
+          :domain => Discourse.base_url.sub(/^https?\:\/\//,''),
           :username => "discourse_foobar",
           :kb_username => "kb_foobar",
           :sig_hash => "kb_signature_hash",
@@ -20,7 +20,7 @@ describe KeybaseProofs::ProofController do
 
       stub_request(:get, 'https://keybase.io/_/api/1.0/sig/proof_valid.json')
         .with(query: {
-          :domain => Discourse.base_url,
+          :domain => Discourse.base_url.sub(/^https?\:\/\//,''),
           :username => "discourse_foobar",
           :kb_username => "kb_quzbaz",
           :sig_hash => "kb_another_hash",
@@ -29,7 +29,7 @@ describe KeybaseProofs::ProofController do
 
       stub_request(:get, 'https://keybase.io/_/api/1.0/sig/proof_valid.json')
         .with(query: {
-          :domain => Discourse.base_url,
+          :domain => Discourse.base_url.sub(/^https?\:\/\//,''),
           :username => "discourse_foobar",
           :kb_username => "wrong_kb_username",
           :sig_hash => "wrong_kb_signature_hash",
@@ -123,7 +123,7 @@ describe KeybaseProofs::ProofController do
     before do
       stub_request(:get, 'https://keybase.io/_/api/1.0/sig/proof_live.json')
         .with(query: {
-          :domain => Discourse.base_url,
+          :domain => Discourse.base_url.sub(/^https?\:\/\//,''),
           :username => "discourse_foobar",
           :kb_username => "kb_username_1",
           :sig_hash => "kb_signature_hash_1",
